@@ -2,15 +2,29 @@ package modelo.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "categoria")
 public class Categoria implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private Usuario usuario;
-
-	private int idCategoria;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idCategoria;
+	@Column(name = "nombre")
 	private String nombre;
+	@ManyToOne(cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "usuario")
+	private Usuario usuario;
 
 	public Categoria() {
 	}
@@ -23,11 +37,11 @@ public class Categoria implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public int getIdCategoria() {
+	public Integer getIdCategoria() {
 		return idCategoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
+	public void setIdCategoria(Integer idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 

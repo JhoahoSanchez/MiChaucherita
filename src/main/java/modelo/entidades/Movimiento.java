@@ -2,21 +2,39 @@ package modelo.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "movimiento")
 public class Movimiento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Cuenta cuenta;
-
-	private int idMovimiento;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idMovimiento;
+	@Column(name = "valor")
 	private double valor;
-
+	@Column(name = "descripcion")
 	private String descripcion;
-
+	@Column(name = "fecha")
 	private String fecha;
-
+	@Column(name = "tipo")
+	private TipoMovimiento tipoMovimiento;
+	@OneToOne(cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "categoria")
 	private Categoria categoria;
+	@OneToOne(cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "cuenta")
+	private Cuenta cuenta;
 
 	public Movimiento() {
 	}
@@ -29,11 +47,11 @@ public class Movimiento implements Serializable {
 		this.cuenta = cuenta;
 	}
 
-	public int getIdMovimiento() {
+	public Integer getIdMovimiento() {
 		return idMovimiento;
 	}
 
-	public void setIdMovimiento(int idMovimiento) {
+	public void setIdMovimiento(Integer idMovimiento) {
 		this.idMovimiento = idMovimiento;
 	}
 
@@ -67,6 +85,14 @@ public class Movimiento implements Serializable {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public TipoMovimiento getTipoMovimiento() {
+		return tipoMovimiento;
+	}
+
+	public void setTipoMovimiento(TipoMovimiento tipoMovimiento) {
+		this.tipoMovimiento = tipoMovimiento;
 	}
 
 }
