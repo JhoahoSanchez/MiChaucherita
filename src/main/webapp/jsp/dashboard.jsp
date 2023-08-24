@@ -102,15 +102,17 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Descripcion</th>
-                            <th>Fecha</th>
-                            <th>Tipo</th>
-                            <th>Categoria</th>
-                            <th>Cuenta</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Account</th>
                         </tr>
                     </thead>
                     <tr>
                         <td>1</td>
+                        <td>200</td>
                         <td>Desc</td>
                         <td>12-2023</td>
                         <td>Gasto</td>
@@ -118,7 +120,8 @@
                         <td>Efectivo</td>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td>2</td>
+                        <td>200</td>
                         <td>Desc</td>
                         <td>12-2023</td>
                         <td>Gasto</td>
@@ -126,7 +129,8 @@
                         <td>Efectivo</td>
                     </tr>                    
                     <tr>
-                        <td>1</td>
+                        <td>3</td>
+                        <td>200</td>
                         <td>Desc</td>
                         <td>12-2023</td>
                         <td>Gasto</td>
@@ -143,7 +147,7 @@
 
     </footer>
 
-    <!-- INCOME -->
+  <!-- INCOME -->
     <div class="overlay" id="overlay">
         <div class="popup" id="popup">
             <a href="#" id="btn-cerrar-popup1" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
@@ -152,12 +156,18 @@
             <form action="#" class="form-1" method="">
 
                 <div class="form-row">
-                    <label for="importe">Importe</label>
+                    <label for="importe">Amount</label>
                     <input type="number" id="importe" name="importe" placeholder="$12000">
                 </div>
 
+                
                 <div class="form-row">
-                    <label for="categoria">Categoria</label>
+                    <label for="fecha">Date</label>
+                    <input type="date" value="clear" />
+                </div>
+
+                <div class="form-row">
+                    <label for="categoria">Category</label>
                     <select id="categoria" name="categoria" class="short">
                         <option value="select" selected>select</option>
                         <option value="Salario">Salario</option>
@@ -167,8 +177,8 @@
                 </div>
 
                 <div class="form-row">
-                    <label for="tipo">Tipo</label>
-                    <select id="tipo" name="tipo" class="short">
+                    <label for="cuenta">Account</label>
+                    <select id="tipo" name="cuenta" class="short">
                         <option value="select" selected>select</option>  
                         <option value="Dinero Efectivo">Dinero Efectivo</option>
                         <option value="Cuentas bancarias">Cuentas bancarias</option>
@@ -176,12 +186,12 @@
                 </div>
 
                 <div class="form-row">
-                    <label for="concepto">Concepto</label>
+                    <label for="concepto">Description</label>
                     <input type="text" id="concepto" name="concepto" placeholder="Concepto">
                 </div>
 
                 <div class="form-row">
-                    <input type="submit" class="btn-submit" value="Guardar">
+                    <input type="submit" class="btn-submit" value="Save">
                 </div>
             </form>
         </div>
@@ -197,12 +207,17 @@
             <form action="#" class="form-2" method="">
 
                 <div class="form-row">
-                    <label for="importe">Importe</label>
+                    <label for="importe">Amount</label>
                     <input type="number" id="importe" name="importe" placeholder="$12000">
                 </div>
 
                 <div class="form-row">
-                    <label for="categoria">Categoria</label>
+                    <label for="fecha">Date</label>
+                    <input type="date" value="clear" />
+                </div>
+
+                <div class="form-row">
+                    <label for="categoria">Category</label>
                     <select id="categoria" name="categoria" class="short">
                         <option value="select" selected>select</option>
                         <option value="Salario">Salario</option>
@@ -212,8 +227,8 @@
                 </div>
 
                 <div class="form-row">
-                    <label for="tipo">Tipo</label>
-                    <select id="tipo" name="tipo" class="short">
+                    <label for="cuenta">Account</label>
+                    <select id="tipo" name="cuenta" class="short">
                         <option value="select" selected>select</option>  
                         <option value="Dinero Efectivo">Dinero Efectivo</option>
                         <option value="Cuentas bancarias">Cuentas bancarias</option>
@@ -221,12 +236,12 @@
                 </div>
 
                 <div class="form-row">
-                    <label for="concepto">Concepto</label>
+                    <label for="concepto">Description</label>
                     <input type="text" id="concepto" name="concepto" placeholder="Concepto">
                 </div>
 
                 <div class="form-row">
-                    <input type="submit" class="btn-submit" value="Guardar">
+                    <input type="submit" class="btn-submit" value="Save">
                 </div>
             </form>
         </div>
@@ -241,22 +256,17 @@
                 <form action="#" class="form-3" method="">
     
                     <div class="form-row">
-                        <label for="importe">Importe</label>
+                        <label for="importe">Amount</label>
                         <input type="number" id="importe" name="importe" placeholder="$12000">
                     </div>
-    
+
                     <div class="form-row">
-                        <label for="categoria">Categoria</label>
-                        <select id="categoria" name="categoria" class="short">
-                            <option value="select" selected>select</option>
-                            <option value="Salario">Salario</option>
-                            <option value="Dinero Extra">Dinero Extra</option>
-                            <option value="Plus">Plus</option>
-                        </select>
+                        <label for="fecha">Date</label>
+                        <input type="date" value="clear" />
                     </div>
     
                     <div class="form-row">
-                        <label for="categoria">Cuenta Origen</label>
+                        <label for="categoria">Source account</label>
                         <select id="categoria" name="categoria" class="short">
                             <option value="select" selected>select</option>
                             <option value="Salario">Salario</option>
@@ -266,7 +276,7 @@
                     </div>
 
                     <div class="form-row">
-                        <label for="categoria">Cuenta Destino</label>
+                        <label for="categoria">Destination account</label>
                         <select id="categoria" name="categoria" class="short">
                             <option value="select" selected>select</option>
                             <option value="Salario">Salario</option>
@@ -276,12 +286,12 @@
                     </div>
     
                     <div class="form-row">
-                        <label for="concepto">Concepto</label>
+                        <label for="concepto">Description</label>
                         <input type="text" id="concepto" name="concepto" placeholder="Concepto">
                     </div>
     
                     <div class="form-row">
-                        <input type="submit" class="btn-submit" value="Guardar">
+                        <input type="submit" class="btn-submit" value="Save">
                     </div>
                 </form>
             </div>
