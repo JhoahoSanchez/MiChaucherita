@@ -13,22 +13,14 @@ public class GestorDashboardController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public GestorDashboardController() {
-		super();
-	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		request.getRequestDispatcher("jsp/dashboard.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 	}
-
-	private void visualizarDashboard() {
-
-	}
-
 }

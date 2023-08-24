@@ -12,7 +12,7 @@
    <main class="container">
     <div class="container-1">
         <div class="container-1-1">
-         <form action="../LoginController?ruta=ingresar" method="POST" class="form">
+         <form action="../LoginController?ruta=login" method="POST" class="form">
              <fieldset>
                  <legend>Bienvenido :D!</legend><br>
                  <p>Inicia sesión con tu cuenta</p> <br><br>
@@ -26,18 +26,10 @@
         </div>
      </div>
      <div class="container-2">
-         <img src="login.png" alt="">
+         <img src="../images/login.png" alt="">
      </div>
    </main>
-    <footer class="container-footer">
-        <p>Grupo 7 | Escuela Politécnica Nacional <br>
-            Lisbeth Dayana Romo Gavilanes |
-            Jhoaho Gabriel Sánchez Cabrera |
-            Roberto Ricardo Sosa Salazar |
-            Gary Ricardo Campaña Ramírez <br> 
-            Aplicaciones Web - 2023 - Ecuador   
-        </p> 
-    </footer>
+  	<%@include file= '../templates/footer.html'%>
 </body>
 
 

@@ -17,6 +17,7 @@ public abstract class DAOFactory {
     public abstract CuentaDAO getCuentaDAO();
     
     public abstract MovimientoDAO getMovimientoDAO();
+
     
 	
 }
