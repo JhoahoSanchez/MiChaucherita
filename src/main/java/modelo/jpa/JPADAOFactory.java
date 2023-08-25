@@ -6,7 +6,7 @@ import modelo.dao.DAOFactory;
 import modelo.dao.MovimientoDAO;
 import modelo.dao.UsuarioDAO;
 
-public class JPADAOFactory extends DAOFactory{
+public class JPADAOFactory extends DAOFactory {
 
 	@Override
 	public UsuarioDAO getUsuarioDAO() {
@@ -27,5 +27,5 @@ public class JPADAOFactory extends DAOFactory{
 	public MovimientoDAO getMovimientoDAO() {
 		return new JPAMovimientoDAO();
 	}
-	
+
 }

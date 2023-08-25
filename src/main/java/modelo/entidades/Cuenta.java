@@ -74,4 +74,10 @@ public class Cuenta implements Serializable {
 		this.usuario = usuario;
 	}
 
+	@Override
+	public String toString() {
+		return "Cuenta [idCuenta=" + idCuenta + ", nombre=" + nombre + ", descripcion=" + descripcion + ", saldo="
+				+ saldo + ", usuario=" + usuario + "]";
+	}
+
 }

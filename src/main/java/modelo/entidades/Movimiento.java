@@ -95,4 +95,11 @@ public class Movimiento implements Serializable {
 		this.tipoMovimiento = tipoMovimiento;
 	}
 
+	@Override
+	public String toString() {
+		return "Movimiento [idMovimiento=" + idMovimiento + ", valor=" + valor + ", descripcion=" + descripcion
+				+ ", fecha=" + fecha + ", tipoMovimiento=" + tipoMovimiento + ", categoria=" + categoria + ", cuenta="
+				+ cuenta + "]";
+	}
+
 }

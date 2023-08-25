@@ -22,12 +22,11 @@ public class Categoria implements Serializable {
 	private Integer idCategoria;
 	@Column(name = "nombre")
 	private String nombre;
-	@Column(name="tipocategoria")
+	@Column(name = "tipocategoria")
 	private TipoCategoria categoria;
 	@ManyToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "usuario")
 	private Usuario usuario;
-
 
 	public Categoria() {
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import modelo.dao.GenericDAO;
 
@@ -24,7 +25,9 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 
 	@Override
 	public List<T> getAll() {
-		return null;
+		TypedQuery<T> query = em.createQuery("SELECT e FROM " + persistentClass.getSimpleName() + " e",
+				persistentClass);
+		return query.getResultList();
 	}
 
 	@Override

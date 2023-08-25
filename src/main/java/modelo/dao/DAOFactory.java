@@ -4,20 +4,18 @@ import modelo.jpa.JPADAOFactory;
 
 public abstract class DAOFactory {
 
-	protected static DAOFactory factory = new JPADAOFactory(); //Inyección de dependencias
-	
-    public static DAOFactory getFactory() {
-        return factory;
-    }
-    
-    public abstract UsuarioDAO getUsuarioDAO();
+	protected static DAOFactory factory = new JPADAOFactory(); // Inyección de dependencias
 
-    public abstract CategoriaDAO getCategoriaDAO();
+	public static DAOFactory getFactory() {
+		return factory;
+	}
 
-    public abstract CuentaDAO getCuentaDAO();
-    
-    public abstract MovimientoDAO getMovimientoDAO();
+	public abstract UsuarioDAO getUsuarioDAO();
 
-    
-	
+	public abstract CategoriaDAO getCategoriaDAO();
+
+	public abstract CuentaDAO getCuentaDAO();
+
+	public abstract MovimientoDAO getMovimientoDAO();
+
 }

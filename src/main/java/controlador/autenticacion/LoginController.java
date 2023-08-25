@@ -28,33 +28,36 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 		this.ruteador(request, response);
 	}
-	private void ruteador(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		String ruta = (request.getParameter("ruta"))==null?"verLogin":request.getParameter("ruta");
-		
+
+	private void ruteador(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		String ruta = (request.getParameter("ruta")) == null ? "verLogin" : request.getParameter("ruta");
+
 		switch (ruta) {
-			case "verLogin":
-				this.verLogin(request,response);
-				break;
-			case "login":
-				this.login(request,response);
-				break;
-			case "salir":
-				this.salir(request, response);
-				break;
+		case "verLogin":
+			this.verLogin(request, response);
+			break;
+		case "login":
+			this.login(request, response);
+			break;
+		case "salir":
+			this.salir(request, response);
+			break;
 //			case "registrarUsuario":
 //				this.registrarUsuario(request, response);
 //				break;
 //			case "guardarUsuario":
 //				this.guardarUsuario(request, response);
 //				break;
-			default:
-				throw new IllegalArgumentException("Unexpected value: " + ruta);
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + ruta);
 		}
 	}
+
 	private void salir(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.getSession().invalidate();
 		response.sendRedirect("jsp/login.jsp");
-		
+
 	}
 
 	private void verLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -62,28 +65,28 @@ public class LoginController extends HttpServlet {
 	}
 
 	private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				//1.- Obtener Datos	que me envian en la solicitud
-				String nombre = request.getParameter("user");
-				String clave = request.getParameter("password");
-				//2.- Llamo al modelo  para obtener los datos (¿necesito lamar al modelo?)
-				Usuario personaAutenticada = modelo.dao.DAOFactory.getFactory().getUsuarioDAO().autorizar(nombre, clave);
-				System.out.println(personaAutenticada.toString());
-				
-				if(personaAutenticada != null) {
-					
-					//Creamos la sesion
-					HttpSession session = request.getSession();
-					session.setAttribute("Usuariologeado", personaAutenticada);
-					
-					// Almacenamos el nombre del usuario en la sesión
-			        session.setAttribute("nombreUsuario", nombre);
-			        response.sendRedirect("GestorDashboardController");
-			        return;
-				}else {
-					String mensaje = "ingresaste mal el usuario y clave";
-					request.setAttribute("mensaje", mensaje);
-					request.getRequestDispatcher("jsp/error.jsp").forward(request, response);
-				}
+		// 1.- Obtener Datos que me envian en la solicitud
+		String nombre = request.getParameter("user");
+		String clave = request.getParameter("password");
+		// 2.- Llamo al modelo para obtener los datos (¿necesito lamar al modelo?)
+		Usuario personaAutenticada = modelo.dao.DAOFactory.getFactory().getUsuarioDAO().autorizar(nombre, clave);
+		System.out.println(personaAutenticada.toString());
+
+		if (personaAutenticada != null) {
+
+			// Creamos la sesion
+			HttpSession session = request.getSession();
+			session.setAttribute("Usuariologeado", personaAutenticada);
+
+			// Almacenamos el nombre del usuario en la sesión
+			session.setAttribute("nombreUsuario", nombre);
+			response.sendRedirect("GestorDashboardController");
+			return;
+		} else {
+			String mensaje = "ingresaste mal el usuario y clave";
+			request.setAttribute("mensaje", mensaje);
+			request.getRequestDispatcher("jsp/error.jsp").forward(request, response);
+		}
 	}
 
 //	private void registrarUsuario(HttpServletRequest request, HttpServletResponse response) {
