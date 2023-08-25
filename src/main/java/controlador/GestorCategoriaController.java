@@ -1,11 +1,16 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.dao.DAOFactory;
+import modelo.entidades.Movimiento;
 
 @WebServlet("/GestorCategoriaController")
 public class GestorCategoriaController extends HttpServlet {
@@ -16,28 +21,12 @@ public class GestorCategoriaController extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 1. Obtener datos que envian la solicitud
-
-		// 2. LLamo al modelo para obtener los datos
-
-		// 3. llamo a la vista
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// 1. Obtener datos que envian la solicitud
-
-	}
-
-	private void crearCategoria() {
-
-	}
-
-	private void guardarCategoria(String nombre) {
 
 	}
 

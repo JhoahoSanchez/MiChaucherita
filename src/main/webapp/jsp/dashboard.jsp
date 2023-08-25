@@ -59,10 +59,11 @@
 				<p>Bank account</p>
 				<p style="font-size: 40px; font-weight: bold; text-align: center;">$${sumBank}</p>
 			</div>
-			
-			<div class="container-main-1--2 paneles" style="display:none;">
+
+			<div class="container-main-1--2 paneles" style="display: none;">
 				<p>Transferencia</p>
-				<p style="font-size: 40px; font-weight: bold; text-align: center;" name="transferAccount">$${sumTrans}</p>
+				<p style="font-size: 40px; font-weight: bold; text-align: center;"
+					name="transferAccount">$${sumTrans}</p>
 			</div>
 		</section>
 
@@ -103,9 +104,36 @@
 				<div class="container-transaction-1">
 					<p style="font-weight: bold; font-size: 20px;">Transaction
 						History</p>
-					<p>Filter</p>
+
+					<form action="GestorDashboardController?ruta=filter" method="POST">
+						<select name="categoriaFiltro" class="select"
+							onchange="this.form.submit()">
+							<option value="select">Todas las categorías</option>
+							<c:forEach items="${listaCategoria}" var="lista">
+								<option value="${lista}">${lista}</option>
+							</c:forEach>
+						</select>
+					</form>
+
+					<form action="GestorDashboardController?ruta=inicio" method="get">
+						<input type="hidden" name="ruta" value="inicio">
+						<button type="submit" style="border: none;" class="icon">
+							<i class="fa-solid fa-broom fa-2x"></i>
+						</button>
+					</form>
 				</div>
 
+
+				<c:choose>
+					<c:when test="${not empty movcateg}">
+						<c:set var="movimientos" value="${movcateg}" />
+					</c:when>
+					<c:otherwise>
+						<c:set var="movimientos" value="${movimiento}" />
+					</c:otherwise>
+				</c:choose>
+
+				<!-- Tabla de movimientos -->
 				<table class="table">
 					<thead>
 						<tr>
@@ -118,7 +146,7 @@
 							<th>Account</th>
 						</tr>
 					</thead>
-					<c:forEach items="${movimiento}" var="movi" varStatus="status">
+					<c:forEach items="${movimientos}" var="movi" varStatus="status">
 						<tr>
 							<td>${movi.idMovimiento}</td>
 							<td

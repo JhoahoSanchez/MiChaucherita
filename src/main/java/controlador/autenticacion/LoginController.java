@@ -80,7 +80,7 @@ public class LoginController extends HttpServlet {
 
 			// Almacenamos el nombre del usuario en la sesión
 			session.setAttribute("nombreUsuario", nombre);
-			response.sendRedirect("GestorDashboardController");
+			response.sendRedirect("GestorDashboardController?ruta=inicio");
 			return;
 		} else {
 			String mensaje = "ingresaste mal el usuario y clave";
