@@ -1,6 +1,7 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+import java.util.Iterator;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -102,4 +103,12 @@ public class Movimiento implements Serializable {
 				+ cuenta + "]";
 	}
 
+	public String monthDate() {
+		char [] dateC = this.fecha.toCharArray();
+		String date = "";
+		for (int i = 0; i < 7; i++) {
+			date += dateC[i];
+		}
+		return date;
+	}
 }

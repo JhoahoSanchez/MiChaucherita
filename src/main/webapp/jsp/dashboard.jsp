@@ -73,10 +73,10 @@
 			<div class="container-wallet paneles">
 				<div class="container-wallet-1">
 					<p style="font-weight: bold; font-size: 20px;">My Wallet</p>
-					<form action="" method="POST">
+					<form action="GestorDashboardController?ruta=filterMoney" method="POST">
 						<div class="col">
 							<input type="month" name="fecha" id="fecha" class="calendario"
-								value="2023-08">
+								value="2023-08" onchange="this.form.submit()">
 						</div>
 					</form>
 				</div>
@@ -114,6 +114,11 @@
 							</c:forEach>
 						</select>
 					</form>
+					
+					<a class="icon btn-abrir-popup" href="#" id="btn-abrir-popup4">
+						<i class="fa-solid fa-calendar"
+						style="color: black;"></i> Filtrar por fecha
+					</a>
 
 					<form action="GestorDashboardController?ruta=inicio" method="get">
 						<input type="hidden" name="ruta" value="inicio">
@@ -214,6 +219,35 @@
 				<div class="form-row">
 					<label for="concepto">Description</label> <input type="text"
 						id="concepto" name="concepto" placeholder="Concepto">
+				</div>
+
+				<div class="form-row">
+					<input type="submit" class="btn-submit" value="Save">
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	
+		<!-- DATE FILTER -->
+	<div class="overlay" id="overlay4">
+		<div class="popup" id="popup4">
+			<a id="btn-cerrar-popup4" class="btn-cerrar-popup"><i
+				class="fas fa-times"></i></a>
+			<h3>DATE FILTER</h3>
+
+			<form action="GestorDashboardController?ruta=date" class="form-1"
+				method="POST">
+
+				<div class="form-row">
+					<label for="fechaIni">FROM</label> <input type="date" value="clear"
+						name="fechaIni" id="fechaIni" required />
+				</div>
+
+
+				<div class="form-row">
+					<label for="fechaFin">TO</label> <input type="date" value="clear"
+						name="fechaFin" id="fechaFin" required />
 				</div>
 
 				<div class="form-row">
