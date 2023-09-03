@@ -8,7 +8,7 @@
 		<class>modelo.entidades.Usuario</class>
 		<class>modelo.entidades.Categoria</class>
 		<class>modelo.entidades.Cuenta</class>
-		<class>modelo.entidades.Movimiento</class> 
+		<class>modelo.entidades.Movimiento</class>
 		 
 		
 		<properties>
